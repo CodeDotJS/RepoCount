@@ -1,8 +1,39 @@
-# Repository-Count
-The worst way of writing a working javascript code to find user's total repositories, how many of them are forked and how many of them are genuine repositories.
+## RepoCount
 
----------------------------------------------
+> A small javascript snippet to show the exact number of forked, genuine and total repository by a github user.
 
-This repository used to work for all the users, as before, github use to show all the repository of the user on a siingle page. But now, github has changed this to "view more reporisotry". So, if you paste the code in console, you won't get the exact result.
+## Running
 
-NOTE : Now, maximum repository shown by github is 200, but before it was unlimited. 
+> Paste the below code in your chrome console and hit enter.
+
+```js
+function countRepos() {
+	var totalRepos = document.getElementsByClassName("repo-list-item");
+	var nums = 0;
+	for (var i = 0; i.length < totalRepos.length; i++) {
+		nums += 1;
+	}
+
+	var forkedRepos = document.getElementsByClassName("repo-list-info");
+	var forks = 0;
+	for (var n = 0; n.length < forkedRepos.length; n++) {
+		forks += 1;
+	}
+
+	var mineRepos = (totalRepos.length - forkedRepos.length);
+
+	return "Total Reposiories :" + " " + totalRepos.length + "\n" + 
+		   "Forked Repositories :" + " " + forkedRepos.length + "\n" + 
+		   "Original Repositories :" + " " + mineRepos;
+}
+
+console.log(countRepos());
+```
+
+## NOTE
+
+```
+Before, this code used to work for all the github users.
+But now, github shows only 200 repository of a user on single page.
+So, this code will work only if the user has 200 repositories.
+```
